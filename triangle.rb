@@ -14,6 +14,11 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
+  sorted_args = [a, b, c].sort
+  # raise TriangleError if [a, b, c].any? { |n| n <= 0 }
+  raise TriangleError if sorted_args[0] <= 0
+  raise TriangleError if sorted_args[0] + sorted_args[1] <= sorted_args[2]
+  
   [:equilateral, :isosceles, :scalene][[a, b, c].uniq.size - 1]
 end
 
